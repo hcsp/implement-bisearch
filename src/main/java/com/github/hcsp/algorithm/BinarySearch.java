@@ -14,10 +14,29 @@ public class BinarySearch {
         int low = 0;
         int high = strings.length - 1;
 
-        return recursionSearch(strings, low, high, target);
+//        return recursionSearch(strings, low, high, target);
+        return nonRecursionSearch(strings, low, high, target);
     }
 
-    private static int recursionSearch(String[] strings, int low, int high, String target) {
+    private static int nonRecursionSearch(String[] strings, int low, int high, String target) {
+        // 使用 while 循环实现
+        while (low <= high) {
+            int middle = (low + high) / 2;
+            String middleStr = strings[middle];
+            if (target.equals(middleStr)) {
+                return middle;
+            } else if (target.compareTo(middleStr) < 0) {
+                // 目标在中间串前面
+                high = middle - 1;
+            } else {
+                // 目标在中间串后面
+                low = middle + 1;
+            }
+        }
+        return -1;
+    }
+
+    /*private static int recursionSearch(String[] strings, int low, int high, String target) {
         if (low <= high) {
             int middle = (low + high) / 2;
             String middleString = strings[middle];
@@ -33,5 +52,5 @@ public class BinarySearch {
         } else {
             return -1;
         }
-    }
+    }*/
 }
