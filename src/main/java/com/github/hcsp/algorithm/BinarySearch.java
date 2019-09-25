@@ -12,19 +12,22 @@ public class BinarySearch {
     public static int binarySearch(String[] strings, String target) {
         int start = 0;
         int end = strings.length - 1;
+        return getIndex(strings, target, start, end);
+    }
 
-        while (start <= end) {
-            int mid = (start + end) >> 1;
-            if (target.compareTo(strings[mid]) < 0) {
-                end = mid -1;
-            } else if (target.compareTo(strings[mid]) > 0) {
-                start = mid + 1;
-            } else {
-                return mid;
-            }
-
+    private static int getIndex(String[] strs, String target, int start, int end) {
+        int mid = (start + end) >> 1;
+        if (start > end) {
+            return -1;
         }
 
+        if (strs[mid].equals(target)) {
+            return mid;
+        } else if (target.compareTo(strs[mid]) < 0) {
+            return getIndex(strs, target, start, mid - 1);
+        } else if (target.compareTo(strs[mid]) > 0) {
+            return getIndex(strs, target, mid + 1, end);
+        }
         return -1;
     }
 }
