@@ -11,13 +11,13 @@ public class BinarySearch {
     // 我们鼓励你使用递归和非递归两种方式
     public static int binarySearch(String[] strings, String target) {
         int first = 0;
-        int last = strings.length;
+        int last = strings.length - 1;
         int mid;
 
         while (last >= first) {
             mid = (first + last) / 2;
 
-            if (strings[mid] == target) {
+            if (strings[mid].equals(target)) {
                 return mid;
             } else if (strings[mid].compareTo(target) > 0) {
                 last = mid - 1;
