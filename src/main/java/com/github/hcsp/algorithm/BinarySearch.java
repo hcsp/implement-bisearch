@@ -19,11 +19,9 @@ public class BinarySearch {
 
             if (strings[mid] == target) {
                 return mid;
-            }
-            else if (strings[mid].compareTo(target) > 0) {
+            } else if (strings[mid].compareTo(target) > 0) {
                 last = mid - 1;
-            }
-            else {
+            } else {
                 first = mid + 1;
             }
         }
