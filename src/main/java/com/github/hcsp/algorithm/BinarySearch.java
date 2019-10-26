@@ -9,24 +9,7 @@ public class BinarySearch {
     // 给定一个按照字符串升序升序排好序的用户数组，寻找目标字符串的位置，返回其索引值
     // 如果未找到，返回-1
     // 我们鼓励你使用递归和非递归两种方式
-
     public static int binarySearch(String[] strings, String target) {
-        int start = 0;
-        int end = strings.length;
-        return recursionSearch(start, end, strings, target);
-    }
-    public static int recursionSearch(int start, int end, String[] strings, String target){
-        int index = (start + end) / 2;
-        if (target.equals(strings[index])) {
-            return index;
-        }
-        if (end - start == 1) {
-            return -1;
-        }
-        if (target.compareTo(strings[index]) < 0){
-            return recursionSearch(start, index, strings, target);
-        } else {
-            return recursionSearch(index, end, strings, target);
-        }
+        return -1;
     }
 }
