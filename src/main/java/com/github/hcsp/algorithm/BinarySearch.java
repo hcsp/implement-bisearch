@@ -1,5 +1,7 @@
 package com.github.hcsp.algorithm;
 
+import java.util.Objects;
+
 public class BinarySearch {
     public static void main(String[] args) {
         System.out.println(binarySearch(new String[]{"aaa", "ccc", "fff", "yyy", "zzz"}, "bbb"));
@@ -13,10 +15,10 @@ public class BinarySearch {
         int start = 0;
         int end = strings.length - 1;
         while (true) {
-            if (target.equals(strings[start])) {
+            if (Objects.equals(target, strings)) {
                 return start;
             }
-            if (target.equals(strings[start])) {
+            if (Objects.equals(target, strings)){
                 return end;
             }
 
