@@ -10,7 +10,7 @@ public class BinarySearch {
     // 如果未找到，返回-1
     // 我们鼓励你使用递归和非递归两种方式
     public static int binarySearch(String[] strings, String target) {
-        return binarySearchByLoop(strings, target);
+        return binarySearchByRecursive(strings, target);
     }
 
     private static int binarySearchByLoop(String[] strings, String target) {
@@ -27,5 +27,26 @@ public class BinarySearch {
             }
         }
         return -1;
+    }
+
+    private static int binarySearchByRecursive(String[] strings, String target) {
+        int low = 0;
+        int high = strings.length - 1;
+        return binarySearchByRecursiveInner(strings, low, high, target);
+    }
+
+    private static int binarySearchByRecursiveInner(String[] strings, int low, int high, String target) {
+        if (low > high) {
+            return -1;
+        }
+
+        int mid = low + (high - low) / 2;
+        if (strings[mid].equals(target)) {
+            return mid;
+        } else if (strings[mid].compareTo(target) < 0) {
+            return binarySearchByRecursiveInner(strings, mid + 1, high, target);
+        } else {
+            return binarySearchByRecursiveInner(strings, low, mid - 1, target);
+        }
     }
 }
