@@ -17,7 +17,7 @@ public class BinarySearch {
         int R = strings.length - 1;
         int mid = 0;
         while (L <= R) {
-            mid = L + ((R - L) >> 1);
+            mid = (L + R) >> 1;
             if (strings[mid].equals(target)) {
                 return mid;
             } else if (strings[mid].compareTo(target) > 0) {
@@ -34,7 +34,7 @@ public class BinarySearch {
         if (L >= R || strings == null || strings.length == 0) {
             return -1;
         }
-        int mid = L + ((R - L) >> 1);
+        int mid = (L + R) >> 1;
         if (strings[mid].equals(target)) {
             return mid;
         } else if (strings[mid].compareTo(target) > 0) {
