@@ -7,6 +7,9 @@ public class BinarySearch {
 
         System.out.println(binarySearch(A1, "bbb"));
         System.out.println(binarySearch(A2,"yyy"));
+
+        System.out.println(binarySearchByRecursion(A1, "bbb", 0, A1.length-1));
+        System.out.println(binarySearchByRecursion(A2, "yyy", 0, A2.length-1));
     }
 
     // 给定一个按照字符串升序升序排好序的用户数组，寻找目标字符串的位置，返回其索引值
