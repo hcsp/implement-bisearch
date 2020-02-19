@@ -15,8 +15,8 @@ public class BinarySearch {
     public static int binarySearch(String[] strings, String target) {
         int start = 0;
         int end = strings.length - 1;
-        while (start < end) {
-            int mid = start + (end - start) / 2;
+        while (start <= end) {
+            int mid = (start + end) / 2;
             if (strings[mid].compareTo(target) < 0) {
                 start = mid + 1;
             } else if (strings[mid].compareTo(target) > 0) {
