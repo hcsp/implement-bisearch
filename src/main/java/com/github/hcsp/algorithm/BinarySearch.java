@@ -19,7 +19,6 @@ public class BinarySearch {
         if (strings[start].compareTo(target) > 0 || strings[end].compareTo(target) < 0 || start > end) {
             return -1;
         }
-        while (start <= end) {
             int mid = (start + end) / 2;
             if (strings[mid].compareTo(target) < 0) {
                 start = mid + 1;
@@ -28,7 +27,6 @@ public class BinarySearch {
             } else {
                 return mid;
             }
-        }
         return binarySearch2(strings, target, start, end);
     }
 }
