@@ -20,8 +20,9 @@ public class BinarySearch {
                 end = TheMedian - 1;
             } else if (target.compareTo(center) == 0) {
                 return TheMedian;
-            } else
+            } else {
                 return -1;
+            }
         }
         return -1;
     }
