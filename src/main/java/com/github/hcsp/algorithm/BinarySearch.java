@@ -15,7 +15,7 @@ public class BinarySearch {
         int start = 0;
         int end = strings.length - 1;
         int mid = (start + end) / 2;
-        while (start < end) {
+        while (start <= end) {
             if (target.equals(strings[start])) {
                 return start;
             }
@@ -25,11 +25,12 @@ public class BinarySearch {
             if (target.equals(strings[mid])) {
                 return mid;
             }
+            //比较ASCII码的大小，>0在右边的区域查找，<0则在左边
             if (target.compareTo(strings[mid]) > 0) {
-                start = mid;
+                start = mid + 1;
                 end -= 1;
             } else {
-                end = mid;
+                end = mid - 1;
                 start += 1;
             }
         }
@@ -50,9 +51,9 @@ public class BinarySearch {
                 return mid;
             }
             if (target.compareTo(strings[mid]) > 0) {
-                return binarySearchWithRecursive(strings, target, mid, end - 1);
+                return binarySearchWithRecursive(strings, target, mid + 1, end - 1);
             } else {
-                return binarySearchWithRecursive(strings, target, start + 1, mid);
+                return binarySearchWithRecursive(strings, target, start + 1, mid - 1);
             }
         }
         return -1;
