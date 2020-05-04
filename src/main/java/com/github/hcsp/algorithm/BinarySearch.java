@@ -29,12 +29,11 @@ public class BinarySearch {
   }
 
   public static int binarySearch2(String[] strings, String target) {
-    int lo = 0;;
+    int lo = 0;
     int hi = strings.length;
     int mid = (hi - lo) / 2;
-    while(hi >= lo) {
+    while (hi >= lo) {
       int a = strings[mid].compareTo(target);
-
       if (a == 0) {
         return mid;
       } else if (a < 0) {
@@ -42,10 +41,8 @@ public class BinarySearch {
       } else {
         hi = mid - 1;
       }
-
       mid = lo + (hi - lo) / 2;
     }
-
     return -1;
   }
 }
