@@ -14,13 +14,15 @@ public class BinarySearch {
         int len = strings.length - 1;
         while (i <= len) {
             int mid = (i + len) / 2;
-            if (strings[mid] == target) {
-                return mid;
+            if (strings[mid].compareTo(target) < 0) {
+                i = mid + 1;
             } else {
-                i=mid+1;
+                if (strings[mid].compareTo(target) == 0) {
+                    return mid;
+                }
+                len = mid - 1;
             }
         }
         return -1;
     }
 }
-
