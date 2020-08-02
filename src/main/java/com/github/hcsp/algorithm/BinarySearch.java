@@ -2,8 +2,8 @@ package com.github.hcsp.algorithm;
 
 public class BinarySearch {
     public static void main(String[] args) {
-//        System.out.println(binarySearch(new String[]{"aaa", "ccc", "fff", "yyy", "zzz"}, "bbb"));
-//        System.out.println(binarySearch(new String[]{"aaa", "ccc", "fff", "yyy", "zzz"}, "yyy"));
+        System.out.println(binarySearch(new String[]{"aaa", "ccc", "fff", "yyy", "zzz"}, "bbb"));
+        System.out.println(binarySearch(new String[]{"aaa", "ccc", "fff", "yyy", "zzz"}, "yyy"));
         System.out.println(binarySearch2(new String[]{"aaa", "ccc", "fff", "yyy", "zzz"}, 0, 4, "bbb"));
         System.out.println(binarySearch2(new String[]{"aaa", "ccc", "fff", "yyy", "zzz"}, 0, 4, "yyy"));
     }
@@ -16,10 +16,18 @@ public class BinarySearch {
         int mid = 0;
 
         while (start <= end) {
-            if (start < 0 || end < 0) return -1;
-            if (strings[start] == target) return start;
-            if (strings[end] == target) return end;
-            if (target.compareTo(strings[start]) < 0 || target.compareTo(strings[end]) > 0) return -1;
+            if (start < 0 || end < 0) {
+                return -1;
+            }
+            if (strings[start] == target) {
+                return start;
+            }
+            if (strings[end] == target) {
+                return end;
+            }
+            if (target.compareTo(strings[start]) < 0 || target.compareTo(strings[end]) > 0) {
+                return -1;
+            }
             mid = (start + end) / 2;
             if (target.compareTo(strings[mid]) > 0) {
                 start = mid + 1;
@@ -33,12 +41,16 @@ public class BinarySearch {
     }
 
     public static int binarySearch2(String[] strings, int start, int end, String target) {
-        if (start > end) return -1;
+        if (start > end) {
+            return -1;
+        }
         int mid = (start + end) / 2;
-        if (target.compareTo(strings[mid]) > 0)
+        if (target.compareTo(strings[mid]) > 0) {
             return binarySearch2(strings, mid + 1, strings.length - 1, target);
-        if (target.compareTo(strings[mid]) < 0)
+        }
+        if (target.compareTo(strings[mid]) < 0) {
             return binarySearch2(strings, start, mid - 1, target);
+        }
         return mid;
     }
 }
