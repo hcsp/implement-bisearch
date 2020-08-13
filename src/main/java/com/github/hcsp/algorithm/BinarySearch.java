@@ -12,46 +12,46 @@ public class BinarySearch {
     public static int binarySearch(String[] strings, String target) {
         int start = 0;
         int end = strings.length - 1;
-//        while (true) {
-//            if (target.equals(strings[start])) {
-//                return start;
-//            }
-//            if (target.equals(strings[end])) {
-//                return end;
-//            }
-//            if (target.compareTo(strings[start]) < 0 || target.compareTo(strings[end]) > 0) {
-//                return -1;
-//            }
-//            int mux = (start + end) / 2;
-//            if (target.compareTo(strings[mux]) > 0) {
-//                start = mux + 1;
-//            } else if (target.compareTo(strings[mux]) < 0) {
-//                end = mux - 1;
-//            } else {
-//                return mux;
-//            }
-//        }
-        return binarySearch(strings, target, start, end);
+        while (true) {
+            if (target.equals(strings[start])) {
+                return start;
+            }
+            if (target.equals(strings[end])) {
+                return end;
+            }
+            if (target.compareTo(strings[start]) < 0 || target.compareTo(strings[end]) > 0) {
+                return -1;
+            }
+            int mux = (start + end) / 2;
+            if (target.compareTo(strings[mux]) > 0) {
+                start = mux + 1;
+            } else if (target.compareTo(strings[mux]) < 0) {
+                end = mux - 1;
+            } else {
+                return mux;
+            }
+        }
+//        return binarySearch(strings, target, start, end);
     }
 
-    public static int binarySearch(String[] strings, String target, int start, int end) {
-        if (target.equals(strings[start])) {
-            return start;
-        }
-        if (target.equals(strings[end])) {
-            return end;
-        }
-        if (target.compareTo(strings[start]) < 0 || target.compareTo(strings[end]) > 0) {
-            return -1;
-        }
-        int mux = (start + end) / 2;
-        if (target.compareTo(strings[mux]) > 0) {
-            return binarySearch(strings, target, mux + 1, end);
-        } else if (target.compareTo(strings[mux]) < 0) {
-            return binarySearch(strings, target, start, mux - 1);
-        } else {
-            return mux;
-        }
-    }
+//    public static int binarySearch(String[] strings, String target, int start, int end) {
+//        if (target.equals(strings[start])) {
+//            return start;
+//        }
+//        if (target.equals(strings[end])) {
+//            return end;
+//        }
+//        if (target.compareTo(strings[start]) < 0 || target.compareTo(strings[end]) > 0) {
+//            return -1;
+//        }
+//        int mux = (start + end) / 2;
+//        if (target.compareTo(strings[mux]) > 0) {
+//            return binarySearch(strings, target, mux + 1, end);
+//        } else if (target.compareTo(strings[mux]) < 0) {
+//            return binarySearch(strings, target, start, mux - 1);
+//        } else {
+//            return mux;
+//        }
+//    }
 
 }
