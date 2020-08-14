@@ -15,6 +15,7 @@ public class BinarySearch {
         int end = strings.length - 1;
         return binarySearch(strings, target, start, end);
     }
+
     //递归方式
     public static int binarySearch(String[] strings, String target, int start, int end) {
         if (target.equals(strings[start])) {
@@ -26,13 +27,13 @@ public class BinarySearch {
         if (target.compareTo(strings[start]) < 0 || target.compareTo(strings[end]) > 0) {
             return -1;
         }
-        int mux = (start + end) / 2;
-        if (target.compareTo(strings[mux]) > 0) {
-            return binarySearch(strings, target, mux + 1, end);
-        } else if (target.compareTo(strings[mux]) < 0) {
-            return binarySearch(strings, target, start, mux - 1);
+        int mid = (start + end) / 2;
+        if (target.compareTo(strings[mid]) > 0) {
+            return binarySearch(strings, target, mid + 1, end);
+        } else if (target.compareTo(strings[mid]) < 0) {
+            return binarySearch(strings, target, start, mid - 1);
         } else {
-            return mux;
+            return mid;
         }
     }
 
