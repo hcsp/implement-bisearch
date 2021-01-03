@@ -17,12 +17,18 @@ public class BinarySearch {
     }
 
     public static int recursion(String[] strings, String target, int start, int end) {
-        if (target.equals(strings[start])) return start;
+        if (target.equals(strings[start])) {
+            return start;
+        }
 
-        if (target.equals(strings[end])) return end;
+        if (target.equals(strings[end])) {
+            return end;
+        }
 
         //判断排序情况下不存在元素的情况下 不在范围内 转换为arscll 码进行比较
-        if (target.compareTo(strings[start]) < 0 || target.compareTo(strings[end]) > 0) return - 1;
+        if (target.compareTo(strings[start]) < 0 || target.compareTo(strings[end]) > 0) {
+            return -1;
+        }
 
         //把数组分为两个区间 如果元素在其中某一个区间内 再从那个区间中查找元素 以减少遍历的次数
         int separate = (start + end) / 2;
