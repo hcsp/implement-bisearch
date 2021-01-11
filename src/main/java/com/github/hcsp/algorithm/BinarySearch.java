@@ -1,7 +1,5 @@
 package com.github.hcsp.algorithm;
 
-import java.util.Arrays;
-
 public class BinarySearch {
 
     private int startNum;
