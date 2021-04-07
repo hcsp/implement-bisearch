@@ -14,6 +14,7 @@ public class BinarySearch {
     public static int binarySearch(String[] strings, String target) {
         int start = 0; // 记录区间开始元素的下标
         int end = strings.length - 1; // 记录区间最后一个元素下标
+        // 两个指针重合到一个位置就找到，开始位置超过结束位置代表找不到了
         while (start <= end) {
             // 数组是线性表，随机寻址复杂度是O(1)
             if (target.equals(strings[start])) {
@@ -25,6 +26,7 @@ public class BinarySearch {
             }
             // 二分查找算法，时间复杂度O(log(n))
             int mid = (start + end) / 2;
+            // 这段代码是在改变区间以及判断查询元素是否是区间中点
             if (target.compareTo(strings[mid]) < 0) {
                 end = mid - 1;
             } else if (target.compareTo(strings[mid]) > 0) {
@@ -33,6 +35,7 @@ public class BinarySearch {
                 return mid;
             }
         }
+        // 找不到，返回-1
         return -1;
     }
 
