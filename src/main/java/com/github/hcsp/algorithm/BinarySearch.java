@@ -38,7 +38,7 @@ public class BinarySearch {
         // 找不到，返回-1
         return -1;
     }
-
+    // 递归方法异常---放学后抽时间修改
     public static int recursiveBinarySearch(String[] strings, String target, int start, int end) {
         while (start <= end) {
             int mid = (start + end) / 2;
