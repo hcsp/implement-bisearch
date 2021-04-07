@@ -5,6 +5,7 @@ public class BinarySearch {
     public static void main(String[] args) {
         System.out.println(binarySearch(new String[]{"aaa", "ccc", "fff", "yyy", "zzz"}, "bbb"));
         System.out.println(binarySearch(new String[]{"aaa", "ccc", "fff", "yyy", "zzz"}, "yyy"));
+        System.out.println(recursiveBinarySearch(new String[]{"aaa", "ccc", "fff", "yyy", "zzz"}, "bbb", 0, 5));
         System.out.println(recursiveBinarySearch(new String[]{"aaa", "ccc", "fff", "yyy", "zzz"}, "yyy", 0, 5));
     }
 
@@ -38,19 +39,23 @@ public class BinarySearch {
         // 找不到，返回-1
         return -1;
     }
+
     // 递归方法异常---放学后抽时间修改
     public static int recursiveBinarySearch(String[] strings, String target, int start, int end) {
-        while (start <= end) {
-            int mid = (start + end) / 2;
-            if (target.compareTo(strings[mid]) < 0) {
-                return recursiveBinarySearch(strings, target, start, mid + 1);
-            } else if (target.compareTo(strings[mid]) > 0) {
-                return recursiveBinarySearch(strings, target, mid - 1, end);
-            } else {
-                return mid;
-            }
+        // 中间索引
+        int mid = (start + end) / 2;
+        // 若找不到，返回-1
+        if (end < start) {
+            return -1;
         }
-        return -1;
+        // 二分查找算法，时间复杂度O(log(n))
+        if (target.compareTo(strings[mid]) < 0) {
+            return recursiveBinarySearch(strings, target, start, mid - 1);
+        } else if (target.compareTo(strings[mid]) > 0) {
+            return recursiveBinarySearch(strings, target, mid + 1, end);
+        } else {
+            return mid;
+        }
     }
 
 
