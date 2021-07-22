@@ -10,29 +10,31 @@ public class BinarySearch {
     // 如果未找到，返回-1
     // 我们鼓励你使用递归和非递归两种方式
     public static int binarySearch(String[] strings, String target) {
-        int start = 0, end = strings.length - 1;
-        while (true) {
-            if (strings[start].equals(target)) {
-                return start;
-            }
+        return binarySearch(strings, target, 0, strings.length - 1);
+    }
 
-            if (strings[end].equals(target)) {
-                return end;
-            }
+    public static int binarySearch(String[] strings, String target, int low, int high) {
+        if (strings[low].equals(target)) {
+            return low;
+        }
 
-            int mid = (start + end) / 2;
+        if (strings[high].equals(target)) {
+            return high;
+        }
 
-            if (mid == start) {
-                return -1;
-            }
+        int mid = (high + low) / 2;
 
-            if (strings[mid].compareTo(target) > 0) {
-                end = mid;
-            } else if (strings[mid].compareTo(target) < 0) {
-                start = mid;
-            } else {
-                return mid;
-            }
+        if (mid == low) {
+            return -1;
+        }
+
+        if (strings[mid].compareTo(target) > 0) {
+            return binarySearch(strings, target, low, mid);
+        } else if (strings[mid].compareTo(target) < 0) {
+            return binarySearch(strings, target, mid, high);
+        } else {
+            return mid;
         }
     }
+
 }
