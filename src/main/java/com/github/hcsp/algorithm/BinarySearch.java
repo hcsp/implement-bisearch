@@ -24,11 +24,11 @@ public class BinarySearch {
 
         while (start <= end) {
             mid = (start + end) / 2;
-            if(strings[mid].compareTo(target) > 0) {
-                end = mid -1;
-            }else if(strings[mid].compareTo(target) < 0) {
-                start = mid +1;
-            }else {
+            if (strings[mid].compareTo(target) > 0) {
+                end = mid - 1;
+            } else if (strings[mid].compareTo(target) < 0) {
+                start = mid + 1;
+            } else {
                 return mid;
             }
         }
@@ -74,15 +74,15 @@ public class BinarySearch {
 
     public static int binarySearchRecursion(String[] strings, String target, int start, int end) {
         int mid = (start + end) / 2;
-        if(strings[mid] == target) {
+        if (strings[mid] == target) {
             return mid;
         }
-        if(start >= end) {
+        if (start >= end) {
             return -1;
-        }else if(strings[mid].compareTo(target) < 0) {
-            return binarySearchRecursion(strings, target, mid +1, end);
-        }else if(strings[mid].compareTo(target) > 0) {
-            return binarySearchRecursion(strings, target, start, mid-1);
+        } else if (strings[mid].compareTo(target) < 0) {
+            return binarySearchRecursion(strings, target, mid + 1, end);
+        } else if (strings[mid].compareTo(target) > 0) {
+            return binarySearchRecursion(strings, target, start, mid - 1);
         }
         return -1;
     }
