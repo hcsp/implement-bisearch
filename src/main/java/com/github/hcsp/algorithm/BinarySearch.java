@@ -1,7 +1,5 @@
 package com.github.hcsp.algorithm;
 
-import java.util.Arrays;
-import java.util.List;
 
 public class BinarySearch {
     public static void main(String[] args) {
