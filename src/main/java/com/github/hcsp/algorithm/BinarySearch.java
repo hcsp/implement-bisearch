@@ -18,7 +18,7 @@ public class BinarySearch {
             if (target.compareTo(strings[mid]) < 0) {
                 end = mid - 1;
             } else if (target.compareTo(strings[mid]) > 0) {
-                start = mid;
+                start = mid + 1;
 
             }
             if (strings[start].equals(target)) {
